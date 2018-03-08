@@ -27,6 +27,7 @@ Gibberwocky is a live-coding environment for Ableton Live using WebSocket and a 
 
 ## Troubleshooting
 
+- Ask for help at: https://talk.lurk.org/channel/gibber
 - If you find that you have to manually highlight a line before the alt-shift-enter key map works you can try the following (tested on Windows 10)
 
 Edit the key map like so:
@@ -44,6 +45,7 @@ atom.commands.add 'atom-text-editor', 'custom:gibberwocky-execute', (evt) ->
   editor = atom.workspace.getActiveTextEditor()
   editor.selectLinesContainingCursors()
   atom.commands.dispatch evt.target, 'gibberwocky:toggle'
+  atom.commands.dispatch(evt.target, 'editor:move-to-end-of-line')
 ```
 
-This will allow you to use ctrl-enter while retaining the alt-shift-enter keymap
+This will allow you to use ctrl-enter while retaining the alt-shift-enter keymap.  After the command is executed it moves the cursor to the end of the next line
